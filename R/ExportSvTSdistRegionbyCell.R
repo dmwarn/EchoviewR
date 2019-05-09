@@ -73,4 +73,5 @@ ExportSvTSdistRegionbyCell <-
       Sys.sleep(1)
       EVCloseFile(EVFile = EVFile)
     }
+    QuitEchoview(EVAppObj)
   }

@@ -4,17 +4,17 @@
 \alias{EVFreqDistRegionsByCellsExport}
 \title{Function to export TS frequency distribution.}
 \usage{
-EVFreqDistRegionsByCellsExport(EVFile, TSacoVarName, regionClassName,
+EVFreqDistRegionsByCellsExport(EVFile, acoVarName, regionClassName,
   exportFn)
 }
 \arguments{
 \item{EVFile}{}
 
-\item{TSacoVarName}{}
-
 \item{regionClassName}{}
 
 \item{exportFn}{}
+
+\item{TSacoVarName}{}
 }
 \value{
 This function exports single target frequency distribution by region-cells.
