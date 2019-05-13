@@ -21,7 +21,7 @@ Copyright and Licence
     along with EchoviewR.  If not, see <http://www.gnu.org/licenses/>.
 
 
-This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
+This is a modified version of the EchoviewR package. This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
 
 If using EchoviewR, please cite as:
 
@@ -53,13 +53,9 @@ You are then ready to install the ```EchoviewR``` package directly from github u
 
 ```{r install,eval=FALSE}
 if (!requireNamespace("devtools",quietly=TRUE)) install.packages("devtools")
- devtools::install_github('AustralianAntarcticDivision/EchoviewR')
+ devtools::install_github('dmwarner/EchoviewR')
 ```
 
-NB if you would like the older ```EchoviewR``` version (v1.0) that was used during the 2017 meeting of the CCAMLR Subgroup on Acoustics, Survey and Analysis Methods, please use the following code:
-
-```{r installASAM,eval=FALSE}
-devtools::install_github('AustralianAntarcticDivision/EchoviewR',ref='v1.0')
 ```
 
 You should then be ready to work with EchoviewR:
