@@ -21,7 +21,10 @@ Copyright and Licence
     along with EchoviewR.  If not, see <http://www.gnu.org/licenses/>.
 
 
-This is a modified version of the EchoviewR package. This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
+This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
+
+The version available on this repository has been modified by Dave Warner at USGS. The added functions have not
+been reviewed by the original authors and any questions should be directed to Dave Warner.
 
 If using EchoviewR, please cite as:
 
