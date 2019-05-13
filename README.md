@@ -23,9 +23,6 @@ Copyright and Licence
 
 This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
 
-The version available on this repository has been modified by Dave Warner at USGS. The added functions have not
-been reviewed by the original authors and any questions should be directed to Dave Warner.
-
 If using EchoviewR, please cite as:
 
 ```{r citation}
@@ -56,9 +53,13 @@ You are then ready to install the ```EchoviewR``` package directly from github u
 
 ```{r install,eval=FALSE}
 if (!requireNamespace("devtools",quietly=TRUE)) install.packages("devtools")
- devtools::install_github('dmwarner/EchoviewR')
+ devtools::install_github('AustralianAntarcticDivision/EchoviewR')
 ```
 
+NB if you would like the older ```EchoviewR``` version (v1.0) that was used during the 2017 meeting of the CCAMLR Subgroup on Acoustics, Survey and Analysis Methods, please use the following code:
+
+```{r installASAM,eval=FALSE}
+devtools::install_github('AustralianAntarcticDivision/EchoviewR',ref='v1.0')
 ```
 
 You should then be ready to work with EchoviewR:
