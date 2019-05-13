@@ -15,10 +15,13 @@
 #' A csv file with variables "var", the name of each variable, "EV.name", the
 #' full path/name for each EV file, "Nvar", the number of variables in the EV file,
 #' and "EVfolder.name", the name of the subfolder containing the EV file.
-#' @export
+
 #'
 #' @keywords Echoview COM scripting
 #' @author Dave Warner
+#' 
+#' @import plyr
+#' @export
 #' 
 get_acoVarNames_in_EVfiles <- function (ev.dir, EVFile) {
   ev.dir <- choose.dir()
