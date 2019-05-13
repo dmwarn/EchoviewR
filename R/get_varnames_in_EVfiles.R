@@ -20,7 +20,7 @@
 #' @keywords Echoview COM scripting
 #' @author Dave Warner
 #' 
-#' @import plyr
+#' @importFrom plyr rbind.fill
 #' @export
 #' 
 get_acoVarNames_in_EVfiles <- function (ev.dir, EVFile) {
