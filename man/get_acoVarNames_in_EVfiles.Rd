@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_varnames_in_EVfiles.R
 \name{get_acoVarNames_in_EVfiles}
 \alias{get_acoVarNames_in_EVfiles}
-\title{Gnerate a list of acoustic variables in list of EV files and
+\title{Generate a list of acoustic variables in list of EV files and
 save that list in a csv file in the folder containing the 
 EV files.}
 \usage{

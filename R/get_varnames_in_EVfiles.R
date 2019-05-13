@@ -1,5 +1,5 @@
 
-#' Gnerate a list of acoustic variables in list of EV files and
+#' Generate a list of acoustic variables in list of EV files and
 #' save that list in a csv file in the folder containing the 
 #' EV files.
 #' 
