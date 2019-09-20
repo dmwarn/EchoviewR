@@ -19,7 +19,7 @@
 #' 
 
 
-EVFreqDistRegionsByCellsExport <- function (EVFile, acoVarName, regionClassName, exportFn) {
+EVFreqDistRegionsByCellsExport <- function (EVFile, TSacoVarName, regionClassName, exportFn) {
   #EVFile <- EVAppObj$OpenFile(uniqueTransect[i])
   EVVar <- EVFile[["Variables"]]$FindByName(TSacoVarName)
   acoVarObj <- EVAcoVarNameFinder(EVFile = EVFile, acoVarName = TSacoVarName)
