@@ -4,14 +4,16 @@
 #' This function runs region-by cell exports of TS frequency distribution 
 #' for EV files identified in the data directory selected and exports them to 
 #' the output directory selected. Can be called on its own but is also used in 
-#' the function ExportSvTSdistRegionbyCell.
+#' the function ExportSvSingleTargetsRegionbyCell.
 #' @param EVFile 
 #' @param TSacoVarName 
 #' @param regionClassName 
 #' @param exportFn
 #'
 #' @return
-#' This function exports single target frequency distribution by region-cells.
+#' This function exports single target by region-cells. The result is
+#' a file with a row per interval-layer with targets meeting defined 
+#' parameters, with the mean, minimum, and maximum TS for that cell.
 #' @keywords Echoview COM scripting
 #' @export
 #' @references \url{http://support.echoview.com/WebHelp/Echoview.htm/}
@@ -19,7 +21,7 @@
 #' 
 
 
-EVFreqDistRegionsByCellsExport <- function (EVFile, TSacoVarName, regionClassName, exportFn) {
+EVSingleTargetsRegionsByCells <- function (EVFile, TSacoVarName, regionClassName, exportFn) {
   #EVFile <- EVAppObj$OpenFile(uniqueTransect[i])
   EVVar <- EVFile[["Variables"]]$FindByName(TSacoVarName)
   acoVarObj <- EVAcoVarNameFinder(EVFile = EVFile, acoVarName = TSacoVarName)
@@ -28,9 +30,9 @@ EVFreqDistRegionsByCellsExport <- function (EVFile, TSacoVarName, regionClassNam
   EVRC <- EVRegionClassFinder(EVFile = EVFile, regionClassName = regionClassName)
   msgV <- c(msgV, EVRC$msg)
   RC <- EVRC$regionClass
-  success <- acoVarObj$ExportFrequencyDistributionByRegionsByCells(exportFn, RC)
+  success <- acoVarObj$ExportSingleTargetsByRegionsByCells(exportFn, RC)
   if (success) {
-    msg <- paste(Sys.time(), " : Successful TS frequency dist. ",
+    msg <- paste(Sys.time(), " : Successful export of single targets",
                  regionClassName, sep = "")
     message(msg)
     msgV <- c(msgV, msg)
