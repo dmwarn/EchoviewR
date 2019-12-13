@@ -10,8 +10,7 @@ Description: Automation of active acoustic data processing by controlling
 License: GPL-3
 URL: https://github.com/AustralianAntarcticDivision/EchoviewR
 BugReports: https://github.com/AustralianAntarcticDivision/EchoviewR/issues
-Depends:
-    RDCOMClient
+Depends: R (>= 3.5.0), RDCOMClient, plyr
 Imports:
     lubridate,
     sp,

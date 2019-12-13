@@ -22,10 +22,11 @@ ExportSvTSdistRegionbyCell <-
            SvacoVarName,
            TSacoVarName,
            regionClassName) {
-    dat.dir <- paste0(choose.dir(), "\\EVfiles*")
+    dat.dir <- paste0(choose.dir(), "\\EV_files_*")
+    #dat.dir <- choose.dir()
     all.ev.dirs <- Sys.glob(file.path(dat.dir), dirmark = TRUE)
     all.evfiles <-
-      list.files(all.ev.dirs, pattern = "EV|ev", full.names = TRUE)
+      list.files(all.ev.dirs, pattern = "EV|ev", full.names = TRUE, recursive = TRUE)
     scrap.files <-
       grep("evwx|evb|csv|evi|CAL|evw|backup", all.evfiles, value = TRUE)
     
@@ -46,16 +47,25 @@ ExportSvTSdistRegionbyCell <-
         paste0(exp.dir,
                "\\",
                "MI",
-               exp.path[[1]][5],
+               exp.path[[1]][8],
                "\\Sv\\",
                "Sv_",
                trans.name[[1]][[1]],
                ".csv")
+      exp.fname.svimg <-
+        paste0(exp.dir,
+               "\\",
+               "MI",
+               exp.path[[1]][8],
+               "\\Sv\\",
+               "Sv_",
+               trans.name[[1]][[1]],
+               ".png")
       exp.fname.ts <-
         paste0(exp.dir,
                "\\",
                "MI",
-               exp.path[[1]][5],
+               exp.path[[1]][8],
                "\\TS\\" ,
                "TS_",
                trans.name[[1]][[1]],
@@ -72,6 +82,7 @@ ExportSvTSdistRegionbyCell <-
       try(EVFreqDistRegionsByCellsExport(EVFile, TSacoVarName, regionClassName, exp.fname.ts))
       Sys.sleep(1)
       EVCloseFile(EVFile = EVFile)
+      #EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 200)
     }
     QuitEchoview(EVAppObj)
   }
