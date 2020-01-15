@@ -28,7 +28,7 @@ ExportSvTSdistRegionbyCell <-
     all.evfiles <-
       list.files(all.ev.dirs, pattern = "EV|ev", full.names = TRUE, recursive = TRUE)
     scrap.files <-
-      grep("evwx|evb|csv|evi|CAL|evw|backup", all.evfiles, value = TRUE)
+      grep("evwx|evb|csv|evi|CAL|cal|evw|backup", all.evfiles, value = TRUE)
     
     #now we have a list of all ev files.
     evfiles <- setdiff(all.evfiles, scrap.files)
