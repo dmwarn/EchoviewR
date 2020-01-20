@@ -4,29 +4,45 @@
 \alias{ExportSvTSdistRegionbyCell}
 \title{Export Sv and TS distribution by region-cell from a folder of EV files.}
 \usage{
-ExportSvTSdistRegionbyCell(dat.dir, exp.dir, SvacoVarName, TSacoVarName,
-  regionClassName)
+ExportSvTSdistRegionbyCell(lake, year, dat.dir, exp.dir, SvacoVarName,
+  TSacoVarName, regionClassName)
 }
 \arguments{
-\item{dat.dir}{}
+\item{lake}{Two letter abbreviation for the lake from which data were collected. This must
+match the characters identifying the lake or survey in the EchoNet2Fish directory. For 
+example, if the EchoNet2Fish processing folder is MI2019, the correct value for this parameter
+would be "MI".}
 
-\item{exp.dir}{}
+\item{year}{Four digit year in which the data were collected. Used in directing output.}
 
-\item{SvacoVarName}{}
+\item{dat.dir}{Parent directory in which one or more folders containing the EV files of interest
+are located.}
 
-\item{TSacoVarName}{}
+\item{exp.dir}{Output directory for the Sv and TS files. Currently the intent is for the exported
+csv files to go to the Sv and TS directories in the EchoNet2Fish directories if the lake-year being 
+processed. The Sv and TS directorys MUST exist already. The function does not create them. The function 
+use the}
 
-\item{regionClassName}{}
+\item{SvacoVarName}{The name of the Sv variable from which to export
+integration results.}
+
+\item{TSacoVarName}{The name of the single targets variable from which
+to export the single target frequency distribution.}
+
+\item{regionClassName}{The name of the class of the region(s) from which
+exports should be made.}
 }
 \value{
-This function generates csv files of Sv and TS frequency distribution data with the result 
-being one of these files for each EV file processed.
+This function generates csv files of Sv and TS frequency distribution data 
+with the result being one of these files for each EV file processed. The 
+exported csv files are saved in an Sv and TS subfolder of the year-lake
+specific EchoNet2Fish subfolder.
 }
 \description{
 This function runs region-by cell exports of Sv and TS frequency distribution 
 for EV files identified in a single folder selected by the user and exports them to 
 the output directory selected by the user. Can of course be used to process
-multiple folders of data with additional code.
+multiple folders of data with additional code. The function also exports
 }
 \references{
 \url{http://support.echoview.com/WebHelp/Echoview.htm/}

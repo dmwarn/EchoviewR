@@ -3,26 +3,42 @@
 #' This function runs region-by cell exports of Sv and TS frequency distribution 
 #' for EV files identified in a single folder selected by the user and exports them to 
 #' the output directory selected by the user. Can of course be used to process
-#' multiple folders of data with additional code.
-#' @param dat.dir 
-#' @param exp.dir 
-#' @param SvacoVarName 
-#' @param TSacoVarName 
-#' @param regionClassName 
+#' multiple folders of data with additional code. The function also exports 
+#' @param lake Two letter abbreviation for the lake from which data were collected. This must
+#' match the characters identifying the lake or survey in the EchoNet2Fish directory. For 
+#' example, if the EchoNet2Fish processing folder is MI2019, the correct value for this parameter
+#' would be "MI".
+#' @param year Four digit year in which the data were collected. Used in directing output.
+#' @param dat.dir Parent directory in which one or more folders containing the EV files of interest
+#' are located. 
+#' @param exp.dir Output directory for the Sv and TS files. Currently the intent is for the exported
+#' csv files to go to the Sv and TS directories in the EchoNet2Fish directories if the lake-year being 
+#' processed. The Sv and TS directorys MUST exist already. The function does not create them. The function 
+#' use the 
+#' @param SvacoVarName The name of the Sv variable from which to export
+#' integration results.
+#' @param TSacoVarName The name of the single targets variable from which
+#' to export the single target frequency distribution.
+#' @param regionClassName The name of the class of the region(s) from which
+#' exports should be made.
 #' @return
-#' This function generates csv files of Sv and TS frequency distribution data with the result 
-#' being one of these files for each EV file processed. 
+#' This function generates csv files of Sv and TS frequency distribution data 
+#' with the result being one of these files for each EV file processed. The 
+#' exported csv files are saved in an Sv and TS subfolder of the year-lake
+#' specific EchoNet2Fish subfolder. 
 #' @keywords Echoview COM scripting
 #' @export
 #' @references \url{http://support.echoview.com/WebHelp/Echoview.htm/}
 
 ExportSvTSdistRegionbyCell <-
-  function(dat.dir,
+  function(lake,
+           year,
+           dat.dir,
            exp.dir,
            SvacoVarName,
            TSacoVarName,
            regionClassName) {
-    dat.dir <- paste0(choose.dir(), "\\EV_files_*")
+    dat.dir <- paste0(choose.dir(caption = "Select the folder in which EV_file folders are found"), "\\EV_files_*")
     #dat.dir <- choose.dir()
     all.ev.dirs <- Sys.glob(file.path(dat.dir), dirmark = TRUE)
     all.evfiles <-
@@ -34,8 +50,8 @@ ExportSvTSdistRegionbyCell <-
     evfiles <- setdiff(all.evfiles, scrap.files)
     
     #This is the base path of the EchoNet2Fish folder where you want exports to go.
-    exp.dir <- choose.dir()
-    
+    exp.dir <- choose.dir(caption = "Select the EchoNet2Fish folder")
+    i=1
     EVAppObj <- COMCreate('EchoviewCom.EvApplication')
     for (i in 1:length(evfiles)) {
       try(EVFile <- EVAppObj$OpenFile(evfiles[i]))
@@ -46,8 +62,8 @@ ExportSvTSdistRegionbyCell <-
       exp.fname.sv <-
         paste0(exp.dir,
                "\\",
-               "MI",
-               exp.path[[1]][8],
+               lake,
+               year,
                "\\Sv\\",
                "Sv_",
                trans.name[[1]][[1]],
@@ -55,17 +71,17 @@ ExportSvTSdistRegionbyCell <-
       exp.fname.svimg <-
         paste0(exp.dir,
                "\\",
-               "MI",
-               exp.path[[1]][8],
+               lake,
+               year,
                "\\Sv\\",
-               "Sv_",
+               "Sv_Echogram_",
                trans.name[[1]][[1]],
                ".png")
       exp.fname.ts <-
         paste0(exp.dir,
                "\\",
-               "MI",
-               exp.path[[1]][8],
+               lake,
+               year,
                "\\TS\\" ,
                "TS_",
                trans.name[[1]][[1]],
@@ -81,8 +97,9 @@ ExportSvTSdistRegionbyCell <-
       ))
       try(EVFreqDistRegionsByCellsExport(EVFile, TSacoVarName, regionClassName, exp.fname.ts))
       Sys.sleep(1)
+      
+      #EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 2500)
       EVCloseFile(EVFile = EVFile)
-      #EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 200)
     }
     QuitEchoview(EVAppObj)
   }
