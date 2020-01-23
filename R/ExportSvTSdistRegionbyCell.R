@@ -51,8 +51,7 @@ ExportSvTSdistRegionbyCell <-
     
     #This is the base path of the EchoNet2Fish folder where you want exports to go.
     exp.dir <- choose.dir(caption = "Select the EchoNet2Fish folder")
-    i=1
-    EVAppObj <- COMCreate('EchoviewCom.EvApplication')
+     EVAppObj <- COMCreate('EchoviewCom.EvApplication')
     for (i in 1:length(evfiles)) {
       try(EVFile <- EVAppObj$OpenFile(evfiles[i]))
       Sys.sleep(1)
@@ -97,8 +96,9 @@ ExportSvTSdistRegionbyCell <-
       ))
       try(EVFreqDistRegionsByCellsExport(EVFile, TSacoVarName, regionClassName, exp.fname.ts))
       Sys.sleep(1)
-      
-      #EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 2500)
+      try(
+      EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 2500)
+      )
       EVCloseFile(EVFile = EVFile)
     }
     QuitEchoview(EVAppObj)
