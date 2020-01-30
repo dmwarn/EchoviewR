@@ -1,4 +1,5 @@
-#' Export Sv and TS distribution by region-cell from a folder of EV files.
+#' Export Sv and TS distribution by region-cell for a single region
+#' without altering the Sv threshold from a folder of EV files.
 #'
 #' This function runs region-by cell exports of Sv and TS frequency distribution 
 #' for EV files identified in a single folder selected by the user and exports them to 
@@ -38,13 +39,13 @@ ExportSvTSdistRegionbyCell <-
            SvacoVarName,
            TSacoVarName,
            regionClassName) {
-    dat.dir <- paste0(choose.dir(caption = "Select the folder in which EV_file folders are found"))
+    dat.dir <- paste0(choose.dir(caption = "Select the folder in which EV_file folders are found"), "\\EV_files_*|EVfiles_*")
     #dat.dir <- choose.dir()
     all.ev.dirs <- Sys.glob(file.path(dat.dir), dirmark = TRUE)
     all.evfiles <-
       list.files(all.ev.dirs, pattern = "EV|ev", full.names = TRUE, recursive = TRUE)
     scrap.files <-
-      grep("evwx|evb|csv|evi|CAL|cal|evw|backup|NOISE|noise", all.evfiles, value = TRUE)
+      grep("evwx|evb|csv|evi|CAL|cal|evw|backup", all.evfiles, value = TRUE)
     
     #now we have a list of all ev files.
     evfiles <- setdiff(all.evfiles, scrap.files)
@@ -87,7 +88,7 @@ ExportSvTSdistRegionbyCell <-
                ".csv")
       
       Sys.sleep(1)
-      try (EVIntegrationByRegionsByCellsExport_Use_EV_thresholds(
+      try (ExportIntegrationByRegionByCells_Use_EV_thresholds(
         EVFile,
         SvacoVarName,
         regionClassName,
@@ -95,9 +96,9 @@ ExportSvTSdistRegionbyCell <-
       ))
       try(EVFreqDistRegionsByCellsExport(EVFile, TSacoVarName, regionClassName, exp.fname.ts))
       Sys.sleep(1)
-      #try(
-      #EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 2500)
-      #)
+      try(
+      EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 2500)
+      )
       EVCloseFile(EVFile = EVFile)
     }
     QuitEchoview(EVAppObj)
