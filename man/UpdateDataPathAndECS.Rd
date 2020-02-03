@@ -4,8 +4,11 @@
 \alias{UpdateDataPathAndECS}
 \title{Title}
 \usage{
-UpdateDataPathAndECS(file.list, filesetName = "Primary Fileset",
-  UpdateECS = TRUE)
+UpdateDataPathAndECS(
+  file.list,
+  filesetName = "Primary Fileset",
+  UpdateECS = TRUE
+)
 }
 \arguments{
 \item{file.list}{list of files}

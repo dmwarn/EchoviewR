@@ -5,9 +5,15 @@
 \title{Modify acoustic variable grid height and distance for both
 Sv and single target variables.}
 \usage{
-ChangeGridforEVfiles(EVFile, SvacoVarName, TSacoVarName,
-  timeDistanceGridType, depthGridType, timeDistanceGridDistance,
-  depthGridDistance)
+ChangeGridforEVfiles(
+  EVFile,
+  SvacoVarName,
+  TSacoVarName,
+  timeDistanceGridType,
+  depthGridType,
+  timeDistanceGridDistance,
+  depthGridDistance
+)
 }
 \arguments{
 \item{EVFile}{EV file to be altered. In this function it will generally be one of many and the user

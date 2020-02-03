@@ -5,8 +5,12 @@
 \alias{EVIntegrationByRegionsByCellsExport_Use_EV_thresholds}
 \title{Export integration by regions by cells from an Echoview acoustic variable}
 \usage{
-EVIntegrationByRegionsByCellsExport_Use_EV_thresholds(EVFile, acoVarName,
-  regionClassName, exportFn)
+EVIntegrationByRegionsByCellsExport_Use_EV_thresholds(
+  EVFile,
+  acoVarName,
+  regionClassName,
+  exportFn
+)
 }
 \arguments{
 \item{EVFile}{An Echoview file object}

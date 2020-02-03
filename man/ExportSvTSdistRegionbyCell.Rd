@@ -5,37 +5,27 @@
 \alias{ExportSvTSdistRegionbyCell}
 \title{Export Sv and TS distribution by region-cell from a folder of EV files.}
 \usage{
-ExportSvTSdistRegionbyCell(lake, year, dat.dir, exp.dir, SvacoVarName,
-  TSacoVarName, regionClassName)
+ExportSvTSdistRegionbyCell(
+  lake,
+  year,
+  dat.dir,
+  exp.dir,
+  SvacoVarName,
+  TSacoVarName,
+  regionClassName
+)
 
-ExportSvTSdistRegionbyCell(lake, year, dat.dir, exp.dir, SvacoVarName,
-  TSacoVarName, regionClassName)
+ExportSvTSdistRegionbyCell(
+  lake,
+  year,
+  dat.dir,
+  exp.dir,
+  SvacoVarName,
+  TSacoVarName,
+  regionClassName
+)
 }
 \arguments{
-\item{lake}{Two letter abbreviation for the lake from which data were collected. This must
-match the characters identifying the lake or survey in the EchoNet2Fish directory. For 
-example, if the EchoNet2Fish processing folder is MI2019, the correct value for this parameter
-would be "MI".}
-
-\item{year}{Four digit year in which the data were collected. Used in directing output.}
-
-\item{dat.dir}{Parent directory in which one or more folders containing the EV files of interest
-are located.}
-
-\item{exp.dir}{Output directory for the Sv and TS files. Currently the intent is for the exported
-csv files to go to the Sv and TS directories in the EchoNet2Fish directories if the lake-year being 
-processed. The Sv and TS directorys MUST exist already. The function does not create them. The function 
-use the}
-
-\item{SvacoVarName}{The name of the Sv variable from which to export
-integration results.}
-
-\item{TSacoVarName}{The name of the single targets variable from which
-to export the single target frequency distribution.}
-
-\item{regionClassName}{The name of the class of the region(s) from which
-exports should be made.}
-
 \item{lake}{Two letter abbreviation for the lake from which data were collected. This must
 match the characters identifying the lake or survey in the EchoNet2Fish directory. For 
 example, if the EchoNet2Fish processing folder is MI2019, the correct value for this parameter

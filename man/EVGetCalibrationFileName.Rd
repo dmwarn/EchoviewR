@@ -9,11 +9,9 @@ EVGetCalibrationFileName(EVFile, filesetName)
 EVGetCalibrationFileName(EVFile, filesetName)
 }
 \arguments{
-\item{EVFile}{Echoview file COM object}
+\item{EVFile}{An Echoview file COM object}
 
 \item{filesetName}{a string containing the name of the Echoview fileset}
-
-\item{EVFile}{An Echoview file COM object}
 }
 \value{
 an object: returns the calibration file name

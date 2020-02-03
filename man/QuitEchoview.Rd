@@ -9,8 +9,6 @@ QuitEchoview(EVAppObj)
 QuitEchoview(EVAppObj)
 }
 \arguments{
-\item{EVAppObj}{An Echoview Application COM object}
-
 \item{EVAppObj}{Echoview Application Object}
 }
 \value{

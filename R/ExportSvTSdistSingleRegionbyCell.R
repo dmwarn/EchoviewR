@@ -39,7 +39,8 @@ ExportSvTSdistRegionbyCell <-
            SvacoVarName,
            TSacoVarName,
            regionClassName) {
-    dat.dir <- paste0(choose.dir(caption = "Select the folder in which EV_file folders are found"), "\\EV_files_*|EVfiles_*")
+    dat.dir <- paste0(choose.dir(caption = "Select the folder in which EV_file folders are found"),
+                      "\\EVfiles_*")
     #dat.dir <- choose.dir()
     all.ev.dirs <- Sys.glob(file.path(dat.dir), dirmark = TRUE)
     all.evfiles <-
@@ -88,7 +89,7 @@ ExportSvTSdistRegionbyCell <-
                ".csv")
       
       Sys.sleep(1)
-      try (ExportIntegrationByRegionByCells_Use_EV_thresholds(
+      try (EVIntegrationByRegionsByCellsExport_Use_EV_thresholds(
         EVFile,
         SvacoVarName,
         regionClassName,

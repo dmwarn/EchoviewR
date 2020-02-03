@@ -4,8 +4,7 @@
 \alias{EVSingleTargetsRegionsByCells}
 \title{Function to export TS frequency distribution.}
 \usage{
-EVSingleTargetsRegionsByCells(EVFile, TSacoVarName, regionClassName,
-  exportFn)
+EVSingleTargetsRegionsByCells(EVFile, TSacoVarName, regionClassName, exportFn)
 }
 \arguments{
 \item{EVFile}{}
