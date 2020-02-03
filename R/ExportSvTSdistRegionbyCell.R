@@ -95,9 +95,6 @@ ExportSvTSdistRegionbyCell <-
       ))
       try(EVFreqDistRegionsByCellsExport(EVFile, TSacoVarName, regionClassName, exp.fname.ts))
       Sys.sleep(1)
-      #try(
-      #EVExportEchogramToImage(EVFile, acoVarName = SvacoVarName, exp.fname.svimg, 2500)
-      #)
       EVCloseFile(EVFile = EVFile)
     }
     QuitEchoview(EVAppObj)
