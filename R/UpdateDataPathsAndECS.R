@@ -1,6 +1,7 @@
 #' Title
 #'
-#' @param file.list list of files
+#' @param file.list list of files. User will be prompted to provide
+#' file locations.
 #' @param filesetName name of fileset
 #' @param UpdateECS Logical stating whether or not to update the ECS file
 #' @return nothing

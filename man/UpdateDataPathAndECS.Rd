@@ -11,7 +11,8 @@ UpdateDataPathAndECS(
 )
 }
 \arguments{
-\item{file.list}{list of files}
+\item{file.list}{list of files. User will be prompted to provide
+file locations.}
 
 \item{filesetName}{name of fileset}
 
