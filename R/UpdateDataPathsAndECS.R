@@ -18,7 +18,8 @@ newdatapath <-
 
 all.evfiles <- list.files(the.ev.dir, pattern="EV|ev", full.names = TRUE,
                           recursive = TRUE)
-scrap.files <- grep("evwx|evb|csv|evi|CAL|cal|evw|backup|template|GTB", all.evfiles, value=TRUE)
+scrap.files <-
+  grep("evwx|evb|csv|evi|CAL|cal|evw|backup|NOISE|noise|template|GTB|EVR|evr|html|Rmd|RData", all.evfiles, value = TRUE)
 
 #now we have a list of all ev files.
 evfiles <- setdiff(all.evfiles, scrap.files)
