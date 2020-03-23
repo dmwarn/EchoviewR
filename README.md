@@ -19,6 +19,8 @@ Copyright and Licence
     
     You should have received a copy of the GNU General Public License
     along with EchoviewR.  If not, see <http://www.gnu.org/licenses/>.
+    
+    Additions and modifications 2019 by Dave Warner.
 
 
 This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
