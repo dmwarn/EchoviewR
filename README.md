@@ -1,5 +1,5 @@
 # EchoviewR
-The R package EchoviewR - a free interface between Echoview (R) and R using COM scripting.
+Forked Version of The R package EchoviewR - a free interface between Echoview (R) and R using COM scripting.
 
 Copyright and Licence
 
@@ -23,6 +23,8 @@ Copyright and Licence
 
 This package is open for community development and we encourage users to extend the package as they need. We are not liable for any losses when using EchoviewR. 
 
+This particular version of the package has been forked and edited by Dave Warner.
+
 If using EchoviewR, please cite as:
 
 ```{r citation}
@@ -30,7 +32,7 @@ citation('EchoviewR')
 ```
 
 
-### Installing EchoviewR
+### Installing EchoviewR from this fork
 Currently, ```EchoviewR``` has quite a few dependencies, something we are hoping to rectify.  Meanwhile, you will need to install the following ```R``` packages:
 
 ```sp```,```geosphere```,```maptools```,```RDCOMClient``` and ```lubridate```
@@ -59,7 +61,7 @@ if (!requireNamespace("devtools",quietly=TRUE)) install.packages("devtools")
 NB if you would like the older ```EchoviewR``` version (v1.0) that was used during the 2017 meeting of the CCAMLR Subgroup on Acoustics, Survey and Analysis Methods, please use the following code:
 
 ```{r installASAM,eval=FALSE}
-devtools::install_github('AustralianAntarcticDivision/EchoviewR',ref='v1.0')
+devtools::install_github('dmwarn/EchoviewR')
 ```
 
 You should then be ready to work with EchoviewR:
